@@ -19,5 +19,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Mohamed Osama',
             'email' => 'admin@admin.com',
         ]);
+
+        $this->call([
+            GovernorateSeeder::class,
+            WeeklyRestSeeder::class,
+        ]);
     }
 }
