@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('vacations', function (Blueprint $table) {
             $table->id();
-            $table->integer('vacation_code');
+            $table->string('vacation_code');
             $table->enum('type_vacation', ['emergency', 'regular', 'satisfied', 'annual']);
             $table->date('from');
             $table->date('to');

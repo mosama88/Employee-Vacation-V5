@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
+use App\Models\Employee;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,8 +19,18 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Mohamed Osama',
-            'email' => 'admin@admin.com',
+            'email' => 'user@admin.com',
         ]);
+
+
+        Admin::factory()->create([
+            'name' => 'Mohamed Osama Admin',
+            'username' => 'admin',
+        ]);
+
+
+    
+
 
         $this->call([
             GovernorateSeeder::class,

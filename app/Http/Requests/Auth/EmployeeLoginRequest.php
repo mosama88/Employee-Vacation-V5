@@ -55,7 +55,7 @@ class EmployeeLoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::guard('employee')->attempt($this->only('username', 'password'), $this->boolean('remember'))) {
+        if (!Auth::guard('employee')->attempt($this->only('username', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
