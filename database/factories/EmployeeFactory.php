@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Branch;
+use App\Models\WeeklyRest;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -24,12 +26,12 @@ class EmployeeFactory extends Factory
             'username' => fake()->userName(),
             'password' => static::$password ??= Hash::make('password'),
             'mobile' => fake()->phoneNumber(),
-            'alt_mobile' => fake()->optional()->phoneNumber(),
+            'alt_mobile' => fake()->phoneNumber(),
             'birth_date' => fake()->date(),
             'start_work' => fake()->date(),
             'leave_balance' => fake()->numberBetween(10, 30),
-            'branch_id' => fake()->numberBetween(1, 5),
-            'weekly_rest_id' => fake()->numberBetween(1, 7),
+            'branch_id' => Branch::inRandomOrder()->first()?->id ?? Branch::factory()->create()->id,
+            'weekly_rest_id' => WeeklyRest::inRandomOrder()->first()?->id ?? WeeklyRest::factory()->create()->id,
             'created_by' => 1, // مثال: المستخدم الأول هو الذي أنشأه
             'updated_by' => null,
             'created_at' => now(),
