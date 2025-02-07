@@ -22,7 +22,7 @@ Route::get('/employee/manager', function () {
 
 Route::get('/admin', function () {
     return view('dashboard.auth.admins.index');
-})->middleware(['auth:admin', 'verified','admin'])->name('dashboard.admin');
+})->middleware(['auth:admin', 'verified', 'admin'])->name('dashboard.admin');
 
 
 
@@ -36,11 +36,18 @@ Route::middleware(['guest:employee'])->group(function () {
 
     Route::post('employee/login', [EmployeeLogin::class, 'store']);
 });
-
+Route::middleware('auth:employee')->group(function () {
+    Route::post('employee/logout', [EmployeeLogin::class, 'destroy'])
+        ->name('employee.logout');
+});
 //########################  Employee Login  ###################################
 Route::middleware(['guest:admin'])->group(function () {
     Route::get('admin/login', [AdminLogin::class, 'index'])
         ->name('admin.login');
 
     Route::post('admin/login', [AdminLogin::class, 'store']);
+});
+Route::middleware('auth:admin   ')->group(function () {
+    Route::post('admin/logout', [AdminLogin::class, 'destroy'])
+        ->name('admin.logout');
 });
