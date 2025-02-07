@@ -16,7 +16,7 @@ class EmployeeLogin extends Controller
     }
 
 
-    public function store(EmployeeLoginRequest $request): RedirectResponse
+    public function store(EmployeeLoginRequest $request)
     {
         $request->authenticate();
 

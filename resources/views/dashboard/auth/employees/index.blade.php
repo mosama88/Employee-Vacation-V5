@@ -1,22 +1,20 @@
-
 @extends('dashboard.layouts.main')
 
 @section('title', 'الصفحة الرئيسية')
 
 @section('content_header')
-    <h1>الصفحة الرئيسية</h1>
+    <h1> للمستخدم الصفحة الرئيسية</h1>
 @stop
 
 @section('content')
-    <x-header-page-component modalName="" modalIcon="" modalTitle=""
-        previousPage="لوحة التحكم" currentPage="">
+    <x-header-page-component modalName="" modalIcon="" modalTitle="" previousPage="لوحة التحكم" currentPage="">
 
         {{-- تمرير المودال --}}
 
 
         {{-- تمرير المسار --}}
         <x-slot name="breadcrumb">
-            <a href="{{ route('dashboard.employee') }}">لوحة التحكم</a>
+            <a href="{{ route('dashboard.employees') }}">لوحة التحكم</a>
         </x-slot>
 
     </x-header-page-component>

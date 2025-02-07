@@ -34,7 +34,13 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->appendToGroup('admin', [
             'admin' => \App\Http\Middleware\AdminMiddleware::class,
         ]);
+
+    $middleware->appendToGroup('adminLogout', [
+        'adminLogout' => \App\Http\Middleware\MultiAuthMiddleware::class,
+    ]);
         $middleware->redirectGuestsTo('dashboard/employee/login');
+
+    
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
