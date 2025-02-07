@@ -29,6 +29,7 @@ class EmployeeFactory extends Factory
             'alt_mobile' => fake()->phoneNumber(),
             'birth_date' => fake()->date(),
             'start_work' => fake()->date(),
+            'type' => fake()->randomElement(['manager','employee']),
             'leave_balance' => fake()->numberBetween(10, 30),
             'branch_id' => Branch::inRandomOrder()->first()?->id ?? Branch::factory()->create()->id,
             'weekly_rest_id' => WeeklyRest::inRandomOrder()->first()?->id ?? WeeklyRest::factory()->create()->id,

@@ -10,48 +10,36 @@ use Illuminate\Foundation\Configuration\Middleware;
 
 
 
-Route::get('/', function () {
-    return view('dashboard.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/employee', function () {
+    return view('dashboard.auth.employees.index');
+})->middleware(['auth:employee', 'verified'])->name('dashboard.employees');
+
+Route::get('/employee/manager', function () {
+    return view('dashboard.auth.employees.manager');
+})->middleware(['auth:employee', 'verified'])->name('dashboard.employees.manager');
 
 
 
-Route::middleware('guest')->group(function () {
+Route::get('/admin', function () {
+    return view('dashboard.auth.admins.index');
+})->middleware(['dashboard', 'auth:admin', 'verified'])->name('dashboard.admin');
+
+
+
+Route::middleware(['guest:employee'])->group(function () {
 
 
     //########################  Employee Login  ###################################
-
     Route::get('employee/login', [EmployeeLogin::class, 'index'])
         ->name('employee.login');
 
     Route::post('employee/login', [EmployeeLogin::class, 'store']);
-    //########################  Admin Login  ###################################
+});
 
+//########################  Employee Login  ###################################
+Route::middleware(['guest:admin'])->group(function () {
     Route::get('admin/login', [AdminLogin::class, 'index'])
         ->name('admin.login');
 
     Route::post('admin/login', [AdminLogin::class, 'store']);
-
-
-    // Route::get('register', [RegisteredUserController::class, 'create'])
-    //     ->name('register');
-
-    // Route::post('register', [RegisteredUserController::class, 'store']);
-
-    // Route::get('login', [AuthenticatedSessionController::class, 'create'])
-    //     ->name('login');
-
-    // Route::post('login', [AuthenticatedSessionController::class, 'store']);
-
-    // Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-    //     ->name('password.request');
-
-    // Route::post('forgot-password', [Pass wordResetLinkController::class, 'store'])
-    //     ->name('password.email');
-
-    // Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
-    //     ->name('password.reset');
-
-    // Route::post('reset-password', [NewPasswordController::class, 'store'])
-    //     ->name('password.store');
 });

@@ -22,7 +22,17 @@ class EmployeeLogin extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        if (auth()->guard('employee')->check()) {
+            $user = auth()->guard('employee')->user();
+
+            if ($user->type == 'manager') {
+                return redirect()->route('dashboard.employees.manager');
+            }
+
+            if ($user->type == 'employee') {
+                return redirect()->route('dashboard.employees');
+            }
+        }
     }
 
     /**
