@@ -42,11 +42,11 @@
 
                 <li class="nav-item">
                     @if (Auth::guard('admin')->check())
-                        <a href="{{ route('dashboard.admin') }}" class="nav-link">
+                        <a href="{{ route('dashboard.admin') }}" class="nav-link @yield('admin-active')">
                         @elseif (Auth::guard('employee')->check() && Auth::guard('employee')->user()->type == 'manager')
-                            <a href="{{ route('dashboard.employees.manager') }}" class="nav-link">
+                            <a href="{{ route('dashboard.employees.manager') }}" class="nav-link @yield('admin-active')">
                             @elseif (Auth::guard('employee')->check() && Auth::guard('employee')->user()->type == 'employee')
-                                <a href="{{ url('dashboard/employee') }}" class="nav-link">
+                                <a href="{{ url('dashboard/employee') }}" class="nav-link @yield('admin-active')">
                                 @else
                                     <a href="#" class="nav-link disabled"> <!-- في حالة عدم تسجيل الدخول -->
                     @endif
@@ -57,7 +57,7 @@
 
 
                 <li class="nav-item">
-                    <a href="{{route('dashboard.branches.index')}}" class="nav-link">
+                    <a href="{{ route('dashboard.branches.index') }}" class="nav-link @yield('branch-active')">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             الفروع

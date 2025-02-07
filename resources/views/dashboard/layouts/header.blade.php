@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>برنامج الأجازات | الصفحة الرئيسية</title>
+<title>برنامج الأجازات | @yield('title')</title>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -27,3 +27,5 @@
 <link rel="stylesheet" href="{{ asset('dashboard') }}/assets/plugins/summernote/summernote-bs4.min.css">
 <!-- RTL Theme style -->
 <link rel="stylesheet" href="{{ asset('dashboard') }}/assets/dist/css/rtl.css">
+
+@stack('css')
