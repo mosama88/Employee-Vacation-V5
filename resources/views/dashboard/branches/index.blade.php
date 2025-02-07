@@ -1,16 +1,17 @@
-@extends('dashboard.layouts.master')
-@push('css')
-    <!-- Select2 -->
-    <link rel="stylesheet" href="{{ asset('dashboard') }}/assets/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="{{ asset('dashboard') }}/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-@endpush
-@section('branch-active', 'active')
-@section('title', 'الفروع')
+
+
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
 @section('content')
     <x-header-page-component titlePage="جدول الفروع" previousPage="لوحة التحكم" currentPage="الفروع">
         <a href="{{ route('dashboard.admin') }}">
     </x-header-page-component>
-
     <div class="container-fluid">
         <div class="row" dir="rtl">
             <div class="col-12">
@@ -68,16 +69,13 @@
     </div>
 @stop
 
+@section('css')
+    {{-- Add here extra stylesheets --}}
+    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+@stop
 
-@push('js')
-    <!-- Select2 -->
-    <script src="{{ asset('dashboard') }}/assets/plugins/select2/js/select2.full.min.js"></script>
-    
+@section('js')
     <script>
-        $(document).ready(function() {
-            $('.select2').select2(); // تهيئة العناصر العادية
-
-            
-        });
+        console.log("Hi, I'm using the Laravel-AdminLTE package!");
     </script>
-@endpush
+@stop
