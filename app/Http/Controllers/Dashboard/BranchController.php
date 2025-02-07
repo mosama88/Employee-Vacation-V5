@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Branch;
+use App\Models\Governorate;
 use Illuminate\Http\Request;
 
 class BranchController extends Controller
@@ -14,7 +15,8 @@ class BranchController extends Controller
     public function index()
     {
         $data = Branch::orderByDesc('id')->paginate(10);
-        return view('dashboard.branches.index', compact('data'));
+        $other['governorates'] = Governorate::get();
+        return view('dashboard.branches.index', compact('data', 'other'));
     }
 
     /**
@@ -22,7 +24,7 @@ class BranchController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.branches.create');
     }
 
     /**
