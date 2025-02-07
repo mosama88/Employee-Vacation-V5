@@ -259,7 +259,7 @@ return [
     'use_route_url' => false,
     'dashboard_url' => 'home',
     'logout_url' => 'dashboard/admin/logout',
-    'login_url' => 'dashboard/admin/login',
+    'login_url' => 'dashboard/admin/logout',
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
@@ -319,13 +319,6 @@ return [
             'text' => 'blog',
             'url' => 'admin/blog',
             'can' => 'manage-blog',
-        ],
-
-        [
-            'text' => 'لوحة التحكم',
-            'url' => 'dashboard/admin',
-            'icon' => 'fas fa-tachometer-alt mx-1',
-            'label_color' => 'success',
         ],
         [
             'text' => 'الفروع',
