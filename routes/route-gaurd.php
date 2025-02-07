@@ -22,7 +22,7 @@ Route::get('/employee/manager', function () {
 
 Route::get('/admin', function () {
     return view('dashboard.auth.admins.index');
-})->middleware(['auth:admin', 'verified'])->name('dashboard.admin');
+})->middleware(['auth:admin', 'verified','admin'])->name('dashboard.admin');
 
 
 

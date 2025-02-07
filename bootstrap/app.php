@@ -30,6 +30,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->appendToGroup('employee', [
             'employee' => \App\Http\Middleware\EmployeeMiddleware::class,
         ]);
+
+        $middleware->appendToGroup('admin', [
+            'admin' => \App\Http\Middleware\AdminMiddleware::class,
+        ]);
         $middleware->redirectGuestsTo('dashboard/employee/login');
     })
     ->withExceptions(function (Exceptions $exceptions) {
