@@ -11,8 +11,8 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('dashboard') }}/assets/dist/img/user2-160x160.jpg"
-                    class="img-circle elevation-2" alt="User Image">
+                <img src="{{ asset('dashboard') }}/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                    alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">Alexander Pierce</a>
@@ -38,14 +38,23 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
        with font-awesome or any other icon font library -->
+
+
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            لوحة التحكم
-                        </p>
+                    @if (Auth::guard('admin')->check())
+                        <a href="{{ route('dashboard.admin') }}" class="nav-link">
+                        @elseif (Auth::guard('employee')->check() && Auth::guard('employee')->user()->type == 'manager')
+                            <a href="{{ route('dashboard.employees.manager') }}" class="nav-link">
+                            @elseif (Auth::guard('employee')->check() && Auth::guard('employee')->user()->type == 'employee')
+                                <a href="{{ url('dashboard/employee') }}" class="nav-link">
+                                @else
+                                    <a href="#" class="nav-link disabled"> <!-- في حالة عدم تسجيل الدخول -->
+                    @endif
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>لوحة التحكم</p>
                     </a>
                 </li>
+
 
 
 
