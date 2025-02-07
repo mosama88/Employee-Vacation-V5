@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'برنامج الأجازات',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -31,7 +31,7 @@ return [
     */
 
     'use_ico_only' => false,
-    'use_full_favicon' => false,
+    'use_full_favicon' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -319,6 +319,19 @@ return [
             'text' => 'blog',
             'url' => 'admin/blog',
             'can' => 'manage-blog',
+        ],
+
+        [
+            'text' => 'لوحة التحكم',
+            'url' => 'dashboard/admin',
+            'icon' => 'fas fa-tachometer-alt mx-1',
+            'label_color' => 'success',
+        ],
+        [
+            'text' => 'الفروع',
+            'url' => 'dashboard/branches',
+            'icon' => 'fas fa-code-branch mx-1',
+            'label_color' => 'success',
         ],
         [
             'text' => 'pages',

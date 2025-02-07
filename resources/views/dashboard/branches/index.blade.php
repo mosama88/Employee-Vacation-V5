@@ -1,16 +1,25 @@
+@extends('dashboard.layouts.main')
 
-
-@extends('adminlte::page')
-
-@section('title', 'Dashboard')
+@section('title', 'الفروع')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>الفروع</h1>
 @stop
 
 @section('content')
-    <x-header-page-component titlePage="جدول الفروع" previousPage="لوحة التحكم" currentPage="الفروع">
-        <a href="{{ route('dashboard.admin') }}">
+    <x-header-page-component modalName="create-modal" modalIcon="fas fa-plus-square ml-2" modalTitle="أضافة فرع جديد"
+        previousPage="لوحة التحكم" currentPage="الفروع">
+
+        {{-- تمرير المودال --}}
+        <x-slot name="modal">
+            @include('dashboard.branches.create')
+        </x-slot>
+
+        {{-- تمرير المسار --}}
+        <x-slot name="breadcrumb">
+            <a href="{{ route('dashboard.admin') }}">لوحة التحكم</a>
+        </x-slot>
+
     </x-header-page-component>
     <div class="container-fluid">
         <div class="row" dir="rtl">
@@ -18,10 +27,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class=" col-3 text-right">
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#create-modal">
-                                <i class="fas fa-plus-square ml-2"></i> أضافة فرع جديد
-                            </button>
-                            @include('dashboard.branches.create')
+
                         </h3>
                     </div>
                     <!-- /.card-header -->
@@ -69,13 +75,13 @@
     </div>
 @stop
 
-@section('css')
+@push('css')
     {{-- Add here extra stylesheets --}}
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
-@stop
+@endpush
 
-@section('js')
+@push('js')
     <script>
         console.log("Hi, I'm using the Laravel-AdminLTE package!");
     </script>
-@stop
+@endpush
