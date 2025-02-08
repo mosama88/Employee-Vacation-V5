@@ -22,7 +22,7 @@ class BranchRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255|unique:branches,name',
+            'name' => 'required|string|max:255',
             'phone' => 'required|numeric|digits_between:7,15',
             'address' => 'required|string|max:500',
             'governorate_id' => 'required|exists:governorates,id',
@@ -36,7 +36,6 @@ class BranchRequest extends FormRequest
             'name.required' => 'يجب إدخال اسم الفرع.',
             'name.string' => 'يجب أن يكون اسم الفرع نصًا.',
             'name.max' => 'يجب ألا يزيد اسم الفرع عن 255 حرفًا.',
-            'name.unique' => 'اسم الفرع مسجل مسبقًا.',
 
             'phone.required' => 'يجب إدخال رقم الهاتف.',
             'phone.numeric' => 'يجب أن يكون رقم الهاتف أرقام فقط.',

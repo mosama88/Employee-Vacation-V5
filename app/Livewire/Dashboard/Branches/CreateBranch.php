@@ -27,7 +27,7 @@ class CreateBranch extends Component
         Branch::create($data);
         $this->reset(['name', 'phone', 'address', 'governorate_id']);
         $this->dispatch('createModalToggle');
-        $this->dispatch('refreshTableCategory')->to(TableBranch::class);
+        $this->dispatch('refreshTableBranch')->to(TableBranch::class);
     }
 
     public function render()

@@ -14,7 +14,17 @@
                 </div>
                 <div class="modal-footer mx-auto">
                     <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>
-                    <button type="submit" class="btn btn-primary">حفظ البيانات</button>
+
+                    <button class="btn btn-primary" type="submit">
+                        <div wire:loading.remove>
+
+                            حفظ البيانات </div>
+                        <div class="spinner-border spinner-border-sm text-secondary ms-2" wire:loading
+                            wire:target="submit" role="status">
+                            <span class="visually-hidden">Updating...</span>
+                        </div>
+
+                    </button>
                 </div>
             </form>
 

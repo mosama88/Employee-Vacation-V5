@@ -7,7 +7,8 @@ use Livewire\Component;
 
 class TableBranch extends Component
 {
-    protected $listeners = ['refreshTableCategory'];
+    protected $listeners = ['refreshTableBranch'];
+    
     public function render()
     {
         $data = Branch::orderByDesc('id')->paginate(10);

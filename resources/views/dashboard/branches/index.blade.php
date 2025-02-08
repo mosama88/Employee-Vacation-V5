@@ -33,6 +33,8 @@
                     <!-- /.card-header -->
 
                     @livewire('dashboard.branches.table-branch')
+                    @livewire('dashboard.branches.edit-branch')
+                    @livewire('dashboard.branches.delete-branch')
 
 
                     <!-- /.card-body -->
@@ -44,9 +46,9 @@
 @stop
 
 @push('css')
-//
+    //
 @endpush
 
 @push('js')
-//
+    //
 @endpush
