@@ -36,7 +36,7 @@
                             {{-- With multiple slots, and lg size --}}
                             <x-adminlte-input name="iSearch" label="إبحث بالأسم أو رقم التليفون" wire:model.live="search"
                                 placeholder="إبحث" igroup-size="lg">
-                                <x-slot name="appendSlot" >
+                                <x-slot name="appendSlot">
                                 </x-slot>
                                 <x-slot name="prependSlot">
                                     <div class="input-group-text text-danger">
@@ -59,46 +59,29 @@
                                     <th class="text-center">رصيد الاجازات</th>
                                     <th class="text-center">الفرع</th>
                                     <th class="text-center">الراحه الاسبوعية</th>
-                                    <th class="text-center">العنوان</th>
                                     <th class="text-center">الأجراءات</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if (!empty($data) && isset($data))
-                                    @foreach ($data as $branch)
+                                    @foreach ($data as $employee)
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
-                                            <td>{{ $branch->employee_code }}</td>
-                                            <td>{{ $branch->name }}</td>
-                                            <td>{{ $branch->username }}</td>
-                                            <td>{{ $branch->mobile }}</td>
-                                            <td>{{ Carbon::parse($branch->birth_date)->format('Y-m-d') }}</td>
-                                            <td>{{ $branch->leave_balance }}</td>
-                                            <td>{{ $branch->branch->name }}</td>
-                                            <td>{{ $branch->weeklyRest->name }}</td>
+                                            <td>{{ $employee->employee_code }}</td>
+                                            <td>{{ $employee->name }}</td>
+                                            <td>{{ $employee->username }}</td>
+                                            <td>{{ $employee->mobile }}</td>
+                                            <td>{{ Carbon::parse($employee->birth_date)->format('Y-m-d') }}</td>
+                                            <td>{{ $employee->leave_balance }}</td>
+                                            <td>{{ $employee->branch->name }}</td>
+                                            <td>{{ $employee->weeklyRest->name }}</td>
 
                                             <td>
-                                                <div class="btn-group" dir="ltr">
-                                                    <button type="button" class="btn btn-info">الأجراءات</button>
-                                                    <button type="button"
-                                                        class="btn btn-info dropdown-toggle dropdown-icon"
-                                                        data-toggle="dropdown" aria-expanded="false">
-                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                    </button>
-                                                    <div class="dropdown-menu" role="menu" style="">
-                                                        <a class="dropdown-item text-right text-info" href=""
-                                                            wire:click.prevent="$dispatch('BranchEdit',{id:{{ $branch->id }}})">تعديل
-                                                            <i class="fas fa-edit ml-2"></i> </a>
-                                                        <a class="dropdown-item text-right text-secondary" href=""
-                                                            wire:click.prevent="$dispatch('BranchShow',{id:{{ $branch->id }}})">التفاصيل<i
-                                                                class="fas fa-eye ml-2"></i> </a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item text-right text-danger" href=""
-                                                            wire:click.prevent="$dispatch('BranchDelete',{id:{{ $branch->id }}})">
-                                                            حذف
-                                                            <i class="fas fa-trash-alt ml-2"></i></a>
-                                                    </div>
-                                                </div>
+
+                                                @include('dashboard.parials.actions', [
+                                                    'name' => 'employees',
+                                                    'name_id' => $employee->id,
+                                                ])
                                             </td>
                                         </tr>
                                     @endforeach
