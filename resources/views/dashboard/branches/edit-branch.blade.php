@@ -1,4 +1,4 @@
-<x-edit-modal titleEdit="أضافة فرع">
+<x-edit-modal titleEdit="تعديل فرع">
     <div class="row text-right" dir="rtl">
 
 

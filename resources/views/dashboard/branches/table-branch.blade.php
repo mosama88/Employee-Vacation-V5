@@ -30,8 +30,9 @@
                                                 <a class="dropdown-item text-right text-info" href=""
                                                     wire:click.prevent="$dispatch('BranchEdit',{id:{{ $branch->id }}})">تعديل
                                                     <i class="fas fa-edit ml-2"></i> </a>
-                                                <a class="dropdown-item text-right text-secondary"
-                                                    href="">التفاصيل<i class="fas fa-eye ml-2"></i> </a>
+                                                <a class="dropdown-item text-right text-secondary" href=""
+                                                    wire:click.prevent="$dispatch('BranchShow',{id:{{ $branch->id }}})">التفاصيل<i
+                                                        class="fas fa-eye ml-2"></i> </a>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item text-right text-danger" href="">
                                                     حذف

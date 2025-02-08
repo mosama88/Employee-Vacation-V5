@@ -35,6 +35,7 @@
                     @livewire('dashboard.branches.table-branch')
                     @livewire('dashboard.branches.edit-branch')
                     @livewire('dashboard.branches.delete-branch')
+                    @livewire('dashboard.branches.show-branch')
 
 
                     <!-- /.card-body -->
