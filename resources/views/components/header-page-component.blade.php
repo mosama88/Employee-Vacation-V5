@@ -7,6 +7,9 @@
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#{{ $modalName }}">
                         <i class="{{ $modalIcon }}"></i> {{ $modalTitle }}
                     </button>
+                @else
+                    <a type="button" class="btn btn-default" href="{{ $url }}"><i
+                            class="{{ $modalIcon }}"></i> {{ $routeName }}</a>
                 @endif
 
                 {{-- عرض محتوى المودال إذا تم تمريره --}}

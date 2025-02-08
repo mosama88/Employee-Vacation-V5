@@ -11,8 +11,15 @@ class HeaderPageComponent extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $modalName, public string $modalIcon,public string $modalTitle, public string $previousPage, public string $currentPage)
-    {
+    public function __construct(
+        public string $modalName,
+        public string $url,
+        public string $routeName,
+        public string $modalIcon,
+        public string $modalTitle,
+        public string $previousPage,
+        public string $currentPage
+    ) {
         //
     }
 

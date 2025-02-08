@@ -7,8 +7,8 @@
 @stop
 
 @section('content')
-    <x-header-page-component modalName="create-modal" modalIcon="fas fa-plus-square ml-2" modalTitle="أضافة درجه وظيفية جديدة "
-        previousPage="لوحة التحكم" currentPage="الدرجه الوظيفية">
+    <x-header-page-component url="" routeName="" modalName="create-modal" modalIcon="fas fa-plus-square ml-2"
+        modalTitle="أضافة درجه وظيفية جديدة " previousPage="لوحة التحكم" currentPage="الدرجه الوظيفية">
 
         {{-- تمرير المودال --}}
         <x-slot name="modal">

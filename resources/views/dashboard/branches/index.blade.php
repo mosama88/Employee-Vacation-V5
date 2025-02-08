@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <x-header-page-component modalName="create-modal" modalIcon="fas fa-plus-square ml-2" modalTitle="أضافة فرع جديد"
+    <x-header-page-component url="" routeName="" modalName="create-modal" modalIcon="fas fa-plus-square ml-2" modalTitle="أضافة فرع جديد"
         previousPage="لوحة التحكم" currentPage="الفروع">
 
         {{-- تمرير المودال --}}

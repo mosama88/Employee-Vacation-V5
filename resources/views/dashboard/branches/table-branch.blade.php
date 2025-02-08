@@ -2,7 +2,7 @@
     <div class="card-header">
 
 
-        <h3 class=" col-3 text-right">
+        <h3 class=" col-3 text-right" dir="ltr">
             {{-- With multiple slots, and lg size --}}
             <x-adminlte-input name="iSearch" label="إبحث بالأسم أو رقم التليفون" wire:model.live="search" placeholder="إبحث"
                 igroup-size="lg">
