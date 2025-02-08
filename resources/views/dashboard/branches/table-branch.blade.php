@@ -4,7 +4,8 @@
 
         <h3 class=" col-3 text-right">
             {{-- With multiple slots, and lg size --}}
-            <x-adminlte-input name="iSearch" label="إبحث بالأسم أو رقم التليفون" wire:model.live="search" placeholder="إبحث" igroup-size="lg">
+            <x-adminlte-input name="iSearch" label="إبحث بالأسم أو رقم التليفون" wire:model.live="search" placeholder="إبحث"
+                igroup-size="lg">
                 <x-slot name="appendSlot">
                 </x-slot>
                 <x-slot name="prependSlot">
@@ -51,7 +52,8 @@
                                             wire:click.prevent="$dispatch('BranchShow',{id:{{ $branch->id }}})">التفاصيل<i
                                                 class="fas fa-eye ml-2"></i> </a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item text-right text-danger" href="">
+                                        <a class="dropdown-item text-right text-danger" href=""
+                                            wire:click.prevent="$dispatch('BranchDelete',{id:{{ $branch->id }}})">
                                             حذف
                                             <i class="fas fa-trash-alt ml-2"></i></a>
                                     </div>

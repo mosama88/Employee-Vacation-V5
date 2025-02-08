@@ -1,7 +1,7 @@
 <x-show-modal titleShow="تفاصيل الفرع">
     <div class="row text-right" dir="rtl">
         <div class="row col-12">
-<table class="table table-bordered border-primary">
+            <table class="table table-bordered border-primary">
                 <thead class="bg-secondary">
                     <tr>
                         <th scope="col">أسم الفرع</th>
@@ -20,7 +20,7 @@
                     </tr>
 
                 </tbody>
-            </table>  
+            </table>
         </div>
     </div>
 

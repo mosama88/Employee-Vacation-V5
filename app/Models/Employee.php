@@ -59,6 +59,11 @@ class Employee extends Authenticatable
         return $this->belongsTo(Admin::class, 'updated_by');
     }
 
+    public function JobGrade()
+    {
+        return $this->belongsTo(JobGrade::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

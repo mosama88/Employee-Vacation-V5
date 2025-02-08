@@ -1,10 +1,11 @@
 <?php
 
 use App\Models\Branch;
+use App\Models\JobGrade;
 use App\Models\WeeklyRest;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->enum('type', ['employee', 'manager'])->nullable()->default('employee');
             $table->foreignIdFor(Branch::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignIdFor(WeeklyRest::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignIdFor(JobGrade::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('created_by')->references('id')->on('admins')->onUpdate('cascade');
             $table->foreignId('updated_by')->nullable()->references('id')->on('admins')->onUpdate('cascade');
             $table->timestamps();
