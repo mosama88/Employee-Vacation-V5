@@ -25,11 +25,7 @@
         <div class="row" dir="rtl">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class=" col-3 text-right">
-
-                        </h3>
-                    </div>
+                  
                     <!-- /.card-header -->
 
                     @livewire('dashboard.branches.table-branch')
@@ -47,9 +43,9 @@
 @stop
 
 @push('css')
-    //
+    
 @endpush
 
 @push('js')
-    //
+    
 @endpush
