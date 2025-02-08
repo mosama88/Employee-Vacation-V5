@@ -328,6 +328,13 @@ return [
             'active' => ['dashboard/branches*']
         ],
         [
+            'text' => 'الدرجات الوظيفية',
+            'url' => 'dashboard/jobGrades',
+            'icon' => 'fas fa-code-branch mx-1',
+            'label_color' => 'success',
+            'active' => ['dashboard/jobGrades*']
+        ],
+        [
             'text' => 'pages',
             'url' => 'admin/pages',
             'icon' => 'far fa-fw fa-file',
