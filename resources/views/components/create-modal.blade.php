@@ -21,10 +21,14 @@
                             حفظ البيانات </div>
                         <div class="spinner-border spinner-border-sm text-secondary ms-2" wire:loading
                             wire:target="submit" role="status">
-                            <span class="visually-hidden">Updating...</span>
+                            @section('preloader')
+                                <i class="fas fa-4x fa-spin fa-spinner text-secondary"></i>
+                                <h4 class="mt-4 text-dark">Loading</h4>
+                            @stop
                         </div>
 
                     </button>
+
                 </div>
             </form>
 
