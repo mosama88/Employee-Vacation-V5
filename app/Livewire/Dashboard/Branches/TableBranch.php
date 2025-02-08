@@ -4,10 +4,13 @@ namespace App\Livewire\Dashboard\Branches;
 
 use App\Models\Branch;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class TableBranch extends Component
 {
 
+
+    use WithPagination;
     public $search;
 
 
