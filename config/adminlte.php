@@ -330,10 +330,19 @@ return [
         [
             'text' => 'الدرجات الوظيفية',
             'url' => 'dashboard/jobGrades',
-            'icon' => 'fas fa-code-branch mx-1',
+            'icon' => 'fas fa-layer-group mx-1',
             'label_color' => 'success',
             'active' => ['dashboard/jobGrades*']
         ],
+
+        [
+            'text' => 'الموظفين',
+            'url' => 'dashboard/employees',
+            'icon' => 'fas fa-users mx-1',
+            'label_color' => 'success',
+            'active' => ['dashboard/employees*']
+        ],
+
         [
             'text' => 'pages',
             'url' => 'admin/pages',
