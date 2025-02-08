@@ -8,7 +8,6 @@ use App\Http\Controllers\Dashboard\VacationController;
 
 
 Route::middleware(['auth:admin'])->name('dashboard.')->group(function () {
-    // Route::resource('/branches', BranchController::class);
     Route::view('/branches', 'dashboard.branches.index')->name('branchess');
     Route::view('/jobGrades', 'dashboard.jobGrades.index')->name('jobGrades');
     Route::resource('/employees', EmployeeController::class);
