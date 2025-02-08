@@ -33,6 +33,7 @@ class Employee extends Authenticatable
         'leave_balance',
         'branch_id',
         'weekly_rest_id',
+        'job_grade_id',
         'created_by',
         'updated_by',
     ];
@@ -61,7 +62,7 @@ class Employee extends Authenticatable
 
     public function JobGrade()
     {
-        return $this->belongsTo(JobGrade::class);
+        return $this->belongsTo(JobGrade::class, 'job_grade_id');
     }
 
     /**

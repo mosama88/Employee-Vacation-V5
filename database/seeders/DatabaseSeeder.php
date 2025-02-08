@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GovernorateSeeder::class,
             WeeklyRestSeeder::class,
+            JobGradeSeeder::class,
             BranchSeeder::class,
             EmployeeSeeder::class,
         ]);

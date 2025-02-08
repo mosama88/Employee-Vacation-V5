@@ -3,10 +3,11 @@
 namespace Database\Factories;
 
 use App\Models\Branch;
+use App\Models\JobGrade;
 use App\Models\WeeklyRest;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -33,6 +34,7 @@ class EmployeeFactory extends Factory
             'leave_balance' => fake()->numberBetween(10, 30),
             'branch_id' => Branch::inRandomOrder()->first()?->id ?? Branch::factory()->create()->id,
             'weekly_rest_id' => WeeklyRest::inRandomOrder()->first()?->id ?? WeeklyRest::factory()->create()->id,
+            'job_grade_id' => JobGrade::inRandomOrder()->first()?->id ?? JobGrade::factory()->create()->id,
             'created_by' => 1, // مثال: المستخدم الأول هو الذي أنشأه
             'updated_by' => null,
             'created_at' => now(),
