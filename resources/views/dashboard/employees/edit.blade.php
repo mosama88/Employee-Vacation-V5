@@ -2,7 +2,7 @@
 
 @extends('dashboard.layouts.main')
 
-@section('title', 'الموظفين')
+@section('title', 'تعديل بيانات الموظف')
 
 @section('content_header')
     <h1>الموظفين</h1>
@@ -10,7 +10,7 @@
 
 @section('content')
     <x-header-page-component url="" routeName="" modalName="" modalIcon="" modalTitle="" previousPage="لوحة التحكم"
-        currentPage="أضافة موظف">
+        currentPage="تعديل بيانات الموظف">
 
         {{-- تمرير المسار --}}
         <x-slot name="breadcrumb">
@@ -21,7 +21,7 @@
         <div class="col-12">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">أضف بيانات الموظف</h3>
+                    <h3 class="card-title">تعديل بيانات الموظف</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->

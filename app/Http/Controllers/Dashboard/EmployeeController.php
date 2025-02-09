@@ -51,9 +51,13 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Employee $employee)
     {
-        //
+        $other['branches'] = Branch::get();
+        $other['job_grades'] = JobGrade::get();
+        $other['weekly_rests'] = WeeklyRest::get();
+
+        return view('dashboard.employees.show', compact('other', 'employee'));
     }
 
     /**
