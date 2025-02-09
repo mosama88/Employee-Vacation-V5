@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\EmployeeRequest;
+use App\Models\Branch;
+use App\Models\JobGrade;
+use App\Models\WeeklyRest;
 
 class EmployeeController extends Controller
 {
@@ -22,13 +26,17 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('dashboard.employees.create');
+        $other['branches'] = Branch::get();
+        $other['job_grades'] = JobGrade::get();
+        $other['weekly_rests'] = WeeklyRest::get();
+
+        return view('dashboard.employees.create', compact('other'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
         //
     }
@@ -46,7 +54,11 @@ class EmployeeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $other['branches'] = Branch::get();
+        $other['job_grades'] = JobGrade::get();
+        $other['weekly_rests'] = WeeklyRest::get();
+
+        return view('dashboard.employees.edit', compact('other'));
     }
 
     /**

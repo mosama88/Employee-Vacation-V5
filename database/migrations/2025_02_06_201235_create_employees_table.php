@@ -25,6 +25,7 @@ return new class extends Migration
             $table->date('birth_date');
             $table->date('start_work');
             $table->string('leave_balance');
+            $table->enum('gender', ['male', 'female'])->nullable();
             $table->enum('type', ['employee', 'manager'])->nullable()->default('employee');
             $table->foreignIdFor(Branch::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignIdFor(WeeklyRest::class)->constrained()->onDelete('cascade')->onUpdate('cascade');

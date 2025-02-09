@@ -31,6 +31,7 @@ class Employee extends Authenticatable
         'birth_date',
         'start_work',
         'leave_balance',
+        'gender',
         'branch_id',
         'weekly_rest_id',
         'job_grade_id',
