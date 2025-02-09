@@ -68,7 +68,7 @@
                             ];
                         @endphp
                         <x-adminlte-input-date name="birth_date" fgroup-class="col-6" label="تاريخ الميلاد" igroup-size="sm"
-                            :config="$configBirthDate" placeholder="Choose a working day...">
+                            :config="$configBirthDate" placeholder="أختر تاريخ الميلاد">
                             <x-slot name="appendSlot">
                                 <div class="input-group-text bg-dark">
                                     <i class="fas fa-calendar-day"></i>
@@ -85,7 +85,7 @@
                             ];
                         @endphp
                         <x-adminlte-input-date name="start_work" fgroup-class="col-6" label="تاريخ بداية العمل"
-                            igroup-size="sm" :config="$configStartWork" placeholder="Choose a working day..." class="form-control">
+                            igroup-size="sm" :config="$configStartWork" placeholder="أختر تاريخ بداية العمل" class="form-control">
                             <x-slot name="appendSlot">
                                 <div class="input-group-text bg-dark">
                                     <i class="fas fa-calendar-day"></i>
@@ -95,9 +95,9 @@
                     </div>
 
 
-                    <div class="row">
+                    <div class="row col-12">
                         {{-- Branch --}}
-                        <x-adminlte-select2 name="branch_id">
+                        <x-adminlte-select2 label="الفرع" fgroup-class="col-4" class="js-example-rtl" name="branch_id">
                             <option>-- أختر الفرع --</option>
                             @if (!empty($other['branches']) && isset($other['branches']))
                                 @foreach ($other['branches'] as $branch)
@@ -110,7 +110,8 @@
 
 
                         {{-- weekly Rest --}}
-                        <x-adminlte-select2 name="weekly_rest_id">
+                        <x-adminlte-select2 label="الراحه الاسبوعية" fgroup-class="col-4" class="js-example-rtl"
+                            name="weekly_rest_id">
                             <option>-- أختر الراحه الأسبوعية --</option>
                             @if (!empty($other['weekly_rests']) && isset($other['weekly_rests']))
                                 @foreach ($other['weekly_rests'] as $weekly)
@@ -123,8 +124,9 @@
 
 
                         {{-- job Grade --}}
-                        <x-adminlte-select2 name="job_grade_id">
-                            <option>-- أختر الراحه الأسبوعية --</option>
+                        <x-adminlte-select2 label="الدرجه الوظيفية" fgroup-class="col-4" class="js-example-rtl"
+                            name="job_grade_id">
+                            <option>-- أختر الدرجه الوظيفية --</option>
                             @if (!empty($other['job_grades']) && isset($other['job_grades']))
                                 @foreach ($other['job_grades'] as $job)
                                     <option value="{{ $job->id }}">{{ $job->name }}</option>
@@ -153,4 +155,21 @@
 @endpush
 
 @push('js')
+    <script>
+        $(document).ready(function() {
+            $(".js-example-rtl").select2({
+                dir: "rtl"
+            });
+        });
+    </script>
+    {{-- <script>
+        $(document).ready(function() {
+            $(".custom-select2").select2({
+                theme: "bootstrap-5",
+                placeholder: "اختر الراحة الأسبوعية",
+                allowClear: true,
+                width: '100%'
+            });
+        });
+    </script> --}}
 @endpush
