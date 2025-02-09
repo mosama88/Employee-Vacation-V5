@@ -40,10 +40,11 @@ class EmployeeController extends Controller
     {
 
         $last_employee_code = Employee::orderByDesc('employee_code')->value('employee_code');
-        $new_employee_code = $last_employee_code ? $last_employee_code + 'EMP1'  : 'EMP1';
+        $new_employee_code = $last_employee_code ? $last_employee_code + 1  : 1;
         $employee->employee_code = $new_employee_code;
-        $employee->created_by = auth('admin')->user->id;
-        $employee->create($request->validated());
+        $employee->created_by = auth()->guard('admin')->user()->id;
+        $employee->fill($request->validated());
+        $employee->save();
         return redirect()->route('dashboard.employees.index')->with('success', 'تم أضافة الموظف بنجاح');
     }
 
