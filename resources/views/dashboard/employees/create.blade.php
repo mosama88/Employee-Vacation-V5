@@ -176,14 +176,4 @@
             });
         });
     </script>
-    {{-- <script>
-        $(document).ready(function() {
-            $(".custom-select2").select2({
-                theme: "bootstrap-5",
-                placeholder: "اختر الراحة الأسبوعية",
-                allowClear: true,
-                width: '100%'
-            });
-        });
-    </script> --}}
 @endpush

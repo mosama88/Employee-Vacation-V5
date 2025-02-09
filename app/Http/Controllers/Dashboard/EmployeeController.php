@@ -59,13 +59,13 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Employee $employee)
     {
         $other['branches'] = Branch::get();
         $other['job_grades'] = JobGrade::get();
         $other['weekly_rests'] = WeeklyRest::get();
 
-        return view('dashboard.employees.edit', compact('other'));
+        return view('dashboard.employees.edit', compact('other', 'employee'));
     }
 
     /**
