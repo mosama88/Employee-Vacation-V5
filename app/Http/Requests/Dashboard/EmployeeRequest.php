@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Dashboard;
 
+use App\Models\Employee;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class EmployeeRequest extends FormRequest
 {
@@ -24,8 +26,8 @@ class EmployeeRequest extends FormRequest
         return [
             'employee_code' => ['nullable', 'numeric', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'unique:employees,username', 'max:255'],
-            'password' => ['required', 'string', 'min:6'],
+            'username' => ['required', 'string', Rule::unique(Employee::class)->ignore(request()->username_id)],
+            'password' => ['nullable', 'string', 'min:6', Rule::unique(Employee::class)->ignore(request()->password_id)],
             'mobile' => ['required', 'string', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:15'],
             'alt_mobile' => ['nullable', 'string', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:10', 'max:15'],
             'birth_date' => ['required', 'date', 'before:today'],

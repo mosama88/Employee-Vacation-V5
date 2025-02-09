@@ -28,6 +28,10 @@
                 <form action="{{ route('dashboard.employees.update', $employee->id) }}" method="POST">
                     @csrf
                     @method('PUT')
+
+                    <input type="hidden" name="username_id" value="{{ $employee->id }}">
+                    <input type="hidden" name="password_id" value="{{ $employee->id }}">
+
                     <div class="row col-12 mt-2" dir="rtl">
                         {{-- name --}}
                         <x-adminlte-input name="name" label="أسم الموظف" value="{{ old('name', $employee->name) }}"

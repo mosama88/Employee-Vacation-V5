@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('employee_code');
             $table->string('name', 255);
             $table->string('username')->unique();
-            $table->string('password');
+            $table->string('password')->nullable()->default('password');
             $table->string('mobile');
             $table->string('alt_mobile');
             $table->date('birth_date');

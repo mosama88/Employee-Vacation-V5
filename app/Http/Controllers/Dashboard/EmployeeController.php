@@ -71,9 +71,11 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(EmployeeRequest $request, Employee $employee)
     {
-        //
+        $employee->updated_by = auth()->guard('admin')->user()->id;
+        $employee->update($request->validated());
+        return redirect()->route('dashboard.employees.index')->with('success', 'تم تعديل بيانات الموظف بنجاح');
     }
 
     /**
