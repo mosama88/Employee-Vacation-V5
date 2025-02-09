@@ -785,7 +785,7 @@ class EmployeeFactory extends Factory
 
 
         return [
-            'employee_code' => fake()->unique()->numerify('EMP###'),
+            'employee_code' => fake()->unique()->randomNumber(4),
             'gender' =>  $gender = fake()->randomElement(['male', 'female']),
             'name' =>  $gender === 'male' ? implode(' ', array_slice($male, 0, 2)) : fake()->randomElement($female) . ' ' . implode(' ', array_slice($male, 0, 2)),
             'username' => fake()->userName(),

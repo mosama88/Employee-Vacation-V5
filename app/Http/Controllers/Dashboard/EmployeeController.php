@@ -36,9 +36,15 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(EmployeeRequest $request)
+    public function store(EmployeeRequest $request, Employee $employee)
     {
-        //
+
+        $last_employee_code = Employee::orderByDesc('employee_code')->value('employee_code');
+        $new_employee_code = $last_employee_code ? $last_employee_code + 'EMP1'  : 'EMP1';
+        $employee->employee_code = $new_employee_code;
+        $employee->created_by = auth('admin')->user->id;
+        $employee->create($request->validated());
+        return redirect()->route('dashboard.employees.index')->with('success', 'تم أضافة الموظف بنجاح');
     }
 
     /**

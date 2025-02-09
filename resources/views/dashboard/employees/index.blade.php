@@ -31,6 +31,11 @@
 
                     <div class="card-header">
 
+                        @if (session('success') != null)
+                            <div class="alert alert-success text-center">
+                                {{ session('success') }}
+                            </div>
+                        @endif
 
                         <h3 class=" col-3 text-right" dir="ltr">
                             {{-- With multiple slots, and lg size --}}
