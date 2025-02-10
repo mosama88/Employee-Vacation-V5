@@ -1,7 +1,7 @@
 <div>
     <div class="card-header">
         @if (session()->has('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success" id="my-success-alert"  role="alert">
                 {{ session('success') }}
             </div>
         @endif
