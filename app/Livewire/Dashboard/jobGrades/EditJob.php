@@ -44,6 +44,8 @@ class EditJob extends Component
     {
         $data =  $this->validate();
         $this->editData->update($data);
+        $this->reset(['name']);
+        $this->dispatch('notify', 'success', 'تم تعديل السجل بنجاح!')->to(TableJob::class);
         $this->dispatch('editModalToggle');
         $this->dispatch('refreshTableJobGrade')->to(TableJob::class);
     }

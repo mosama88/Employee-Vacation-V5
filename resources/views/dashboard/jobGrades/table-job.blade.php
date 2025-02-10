@@ -1,6 +1,10 @@
 <div>
     <div class="card-header">
-
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
 
         <h3 class=" col-3 text-right" dir="ltr">
             {{-- With multiple slots, and lg size --}}

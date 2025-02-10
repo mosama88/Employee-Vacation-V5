@@ -13,8 +13,17 @@ class TableJob extends Component
     use WithPagination;
     public $search;
 
+    protected $listeners = ['refreshTableJobGrade' => 'refreshComponent', 'notify' => 'showNotification'];
 
-    protected $listeners = ['refreshTableJobGrade'];
+    public function refreshComponent()
+    {
+        $this->render(); // إعادة تحميل الجدول
+    }
+    
+    public function showNotification($type, $message)
+    {
+        session()->flash($type, $message);
+    }
 
     public function render()
     {
