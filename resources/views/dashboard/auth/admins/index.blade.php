@@ -7,8 +7,9 @@
 @stop
 
 @section('content')
-    <x-header-page-component modalName="" modalIcon="" modalTitle=""
-        previousPage="لوحة التحكم" currentPage="">
+
+    <x-header-page-component modalName="" routeName="" url="" modalIcon="" modalTitle="" previousPage=""
+        currentPage="لوحة التحكم">
 
         {{-- تمرير المودال --}}
 

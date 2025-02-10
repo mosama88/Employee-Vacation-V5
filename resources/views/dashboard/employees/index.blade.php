@@ -31,12 +31,6 @@
 
                     <div class="card-header">
 
-                        @if (session('success') != null)
-                            <div class="alert alert-success text-center">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
                         <h3 class=" col-3 text-right" dir="ltr">
                             {{-- With multiple slots, and lg size --}}
                             <x-adminlte-input name="iSearch" label="إبحث بالأسم أو رقم التليفون" wire:model.live="search"
